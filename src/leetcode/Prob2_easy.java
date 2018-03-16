@@ -1,17 +1,17 @@
 package leetcode;
 
-public class Prob2_easy {
-    /**
-     * Definition for singly-linked list.
-     **/
-    public static class ListNode {
-        int val;
-        ListNode next;
+import leetcode.helper.ListNode;
 
-        ListNode(int x) {
-            val = x;
-        }
-    }
+/*
+
+You are given two non-empty linked lists representing two non-negative integers.
+ The digits are stored in reverse order and each of their nodes contain a single digit.
+ Add the two numbers and return it as a linked list.
+
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+*/
+public class Prob2_easy {
+
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode result = new ListNode(0);
@@ -49,5 +49,6 @@ public class Prob2_easy {
             System.out.print(res.val);
             res = res.next;
         }
+        // 708
     }
 }

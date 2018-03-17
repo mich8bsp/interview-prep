@@ -20,3 +20,45 @@ Insertion O(n)
 Deletion O(n)
 
 //--------------------------------------------------------------//
+---Lists---
+
+ArrayList:
+
+Uses an array that resizes when it exceeds its size
+The resizing takes O(n) but happens so rarely that amortized is still O(1)
+
+Linked List:
+Access O(n)
+Search O(n)
+Insertion O(1)
+Deletion O(1)
+
+Skip List:
+Maintain a linked hierarchy of subsequences
+Adds Memory overhead of O(nlog(n))
+
+Access O(nlog(n))
+Search O(nlog(n))
+Insertion O(nlog(n))
+Deletion O(nlog(n))
+
+//----------------------------------------------------------------//
+
+Stack (LIFO):
+
+Access O(n)
+Search O(n)
+Insertion O(1)
+Deletion O(1)
+
+Queue (FIFO):
+
+Access O(n)
+Search O(n)
+Insertion O(1)
+Deletion O(1)
+
+//-----------------------------------------------------------------//
+
+Trees
+

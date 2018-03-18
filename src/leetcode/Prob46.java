@@ -48,13 +48,16 @@ public class Prob46 {
                 mappedValues.add(new ValueWithRest(remaining[i], rest));
             }
 
-            return mappedValues
-                    .stream()
-                    .flatMap(valueWithRest -> {
-                        List<Integer> newPerm = new ArrayList<>(currentPermutation);
-                        newPerm.add(valueWithRest.value);
-                        return permute(newPerm, valueWithRest.rest).stream();
-                    }).collect(Collectors.toList());
+            List<List<Integer>> collectedPermutations = new ArrayList<>();
+
+            for (ValueWithRest valueWithRest : mappedValues) {
+                List<Integer> newPerm = new ArrayList<>(currentPermutation);
+                newPerm.add(valueWithRest.value);
+                List<List<Integer>> allSubPermutations = permute(newPerm, valueWithRest.rest);
+                collectedPermutations.addAll(allSubPermutations);
+            }
+
+            return collectedPermutations;
         }
     }
 

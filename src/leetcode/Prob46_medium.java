@@ -1,7 +1,6 @@
 package leetcode;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 /*
 Given a collection of distinct numbers, return all possible permutations.
@@ -18,7 +17,7 @@ For example,
   [3,2,1]
 ]
  */
-public class Prob46 {
+public class Prob46_medium {
 
     private static class ValueWithRest{
         public int value;
@@ -67,7 +66,7 @@ public class Prob46 {
 
 
     public static void main(String[] args) {
-        Prob46 prob = new Prob46();
+        Prob46_medium prob = new Prob46_medium();
         List<List<Integer>> res = prob.permute(new int[]{1, 2, 3});
         System.out.println(res);
     }

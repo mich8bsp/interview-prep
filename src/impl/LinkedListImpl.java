@@ -4,35 +4,9 @@ import java.util.Optional;
 
 public class LinkedListImpl<T> {
 
-    private LinkedListNode root = null;
-    private LinkedListNode tail = null;
+    private LinkedListNode<T> root = null;
+    private LinkedListNode<T> tail = null;
     private int size = 0;
-
-    private class LinkedListNode {
-        private T value;
-        private LinkedListNode next;
-
-        public LinkedListNode(T value) {
-            this(value, null);
-        }
-
-        public LinkedListNode(T value, LinkedListNode next) {
-            this.value = value;
-            this.next = next;
-        }
-
-        public T getValue() {
-            return value;
-        }
-
-        public LinkedListNode getNext() {
-            return next;
-        }
-
-        public void setNext(LinkedListNode next) {
-            this.next = next;
-        }
-    }
 
     public int size() {
         return size;
@@ -50,19 +24,19 @@ public class LinkedListImpl<T> {
     }
 
 
-    private LinkedListNode nodeAt(int index){
+    private LinkedListNode<T> nodeAt(int index){
         checkIndex(index);
-        LinkedListNode currNode = root;
+        LinkedListNode<T> currNode = root;
         for (int i = 0; i < index; i++) {
             if (currNode == null) {
                 break;
             }
-            currNode = currNode.next;
+            currNode = currNode.getNext();
         }
         return currNode;
     }
 
-    private T valueOf(LinkedListNode node){
+    private T valueOf(LinkedListNode<T> node){
         return Optional.ofNullable(node)
                 .map(LinkedListNode::getValue)
                 .orElse(null);
@@ -73,7 +47,7 @@ public class LinkedListImpl<T> {
     }
 
     public void pushFront(T value) {
-        root = new LinkedListNode(value, root);
+        root = new LinkedListNode<>(value, root);
         if (tail == null) {
             tail = root;
         }
@@ -84,7 +58,7 @@ public class LinkedListImpl<T> {
         if (isEmpty()) {
             return null;
         }
-        LinkedListNode oldRoot = root;
+        LinkedListNode<T> oldRoot = root;
         root = oldRoot.getNext();
         if (root == null) {
             tail = null;
@@ -98,7 +72,7 @@ public class LinkedListImpl<T> {
         if (root == null) {
             pushFront(value);
         } else {
-            tail.setNext(new LinkedListNode(value));
+            tail.setNext(new LinkedListNode<>(value));
             tail = tail.getNext();
             size++;
         }
@@ -108,7 +82,7 @@ public class LinkedListImpl<T> {
         if (size <= 1) {
             return popFront();
         } else {
-            LinkedListNode currNode = nodeAt(size-1);
+            LinkedListNode<T> currNode = nodeAt(size-1);
             T popped = valueOf(currNode);
             tail = currNode;
             tail.setNext(null);
@@ -137,9 +111,9 @@ public class LinkedListImpl<T> {
             pushBack(value);
             return;
         }
-        LinkedListNode prevNode = nodeAt(index-1);
-        LinkedListNode nextNode = prevNode.getNext();
-        LinkedListNode currNode = new LinkedListNode(value, nextNode);
+        LinkedListNode<T> prevNode = nodeAt(index-1);
+        LinkedListNode<T> nextNode = prevNode.getNext();
+        LinkedListNode<T> currNode = new LinkedListNode<>(value, nextNode);
         prevNode.setNext(currNode);
         size++;
     }
@@ -152,9 +126,9 @@ public class LinkedListImpl<T> {
         if(index==size-1){
             return popBack();
         }
-        LinkedListNode prevNode = nodeAt(index-1);
-        LinkedListNode currNode = prevNode.getNext();
-        LinkedListNode nextNode = currNode.getNext();
+        LinkedListNode<T> prevNode = nodeAt(index-1);
+        LinkedListNode<T> currNode = prevNode.getNext();
+        LinkedListNode<T> nextNode = currNode.getNext();
         prevNode.setNext(nextNode);
         currNode.setNext(null);
         return currNode.getValue();
@@ -168,15 +142,15 @@ public class LinkedListImpl<T> {
         if(size<=1){
             return;
         }
-        LinkedListNode prevNode = null;
-        LinkedListNode currentNode = root;
+        LinkedListNode<T> prevNode = null;
+        LinkedListNode<T> currentNode = root;
         for(int i=0;i<size;i++){
-            LinkedListNode nextNode = currentNode.getNext();
+            LinkedListNode<T> nextNode = currentNode.getNext();
             currentNode.setNext(prevNode);
             prevNode = currentNode;
             currentNode = nextNode;
         }
-        LinkedListNode temp = root;
+        LinkedListNode<T> temp = root;
         root = tail;
         tail = temp;
     }

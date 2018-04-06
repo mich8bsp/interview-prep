@@ -38,10 +38,13 @@ public class ArrayImpl<T> {
         insert(size, item);
     }
 
-    private void adjustCapacity() {
+    private void adjustCapacityInsert() {
         if (size() >= capacity()) {
             array = Arrays.copyOf(array, array.length * 2);
         }
+    }
+
+    private void adjustCapacityDelete(){
         if(size() <= 0.25 * capacity()){
             array = Arrays.copyOf(array, (int) (array.length * 0.25));
         }
@@ -51,7 +54,7 @@ public class ArrayImpl<T> {
         if (index > size()) {
             throw new IndexOutOfBoundsException();
         }
-        adjustCapacity();
+        adjustCapacityInsert();
         if (index < size) {
             System.arraycopy(array, index, array, index + 1, size + 1 - index);
         }
@@ -76,7 +79,7 @@ public class ArrayImpl<T> {
             System.arraycopy(array, index + 1, array, index, size + 1 - index);
         }
         array[--size] = null;
-        adjustCapacity();
+        adjustCapacityDelete();
         return popped;
     }
 

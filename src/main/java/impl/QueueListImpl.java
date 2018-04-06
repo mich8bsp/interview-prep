@@ -26,6 +26,7 @@ public class QueueListImpl<T> {
             if (root == null) {
                 tail = null;
             }
+            size--;
             return popped.getValue();
         } else {
             return null;
@@ -34,6 +35,10 @@ public class QueueListImpl<T> {
 
     public boolean isEmpty() {
         return size == 0;
+    }
+
+    public int size(){
+        return size;
     }
 
 }

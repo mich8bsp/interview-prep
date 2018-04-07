@@ -1,5 +1,7 @@
-package impl;
+package impl.collections;
 
+import impl.collections.QueueArrayImpl;
+import impl.collections.QueueListImpl;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

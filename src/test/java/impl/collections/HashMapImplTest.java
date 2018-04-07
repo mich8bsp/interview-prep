@@ -1,5 +1,6 @@
-package impl;
+package impl.collections;
 
+import impl.collections.HashMapImpl;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

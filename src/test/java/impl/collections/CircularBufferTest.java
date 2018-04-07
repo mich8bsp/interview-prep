@@ -1,5 +1,6 @@
-package impl;
+package impl.collections;
 
+import impl.collections.CircularBuffer;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

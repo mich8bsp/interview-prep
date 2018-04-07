@@ -1,4 +1,4 @@
-package impl;
+package impl.collections;
 
 public class LinkedListNode<T> {
     private T value;

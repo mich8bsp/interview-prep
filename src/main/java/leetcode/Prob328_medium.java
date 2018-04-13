@@ -4,8 +4,8 @@ import leetcode.helper.ListNode;
 
 public class Prob328_medium {
 
-        public leetcode.helper.ListNode oddEvenList(leetcode.helper.ListNode head) {
-            if(head.next==null || head.next.next == null){
+        public ListNode oddEvenList(ListNode head) {
+            if(head == null || head.next==null || head.next.next == null){
                 return head;
             }
 
@@ -13,8 +13,10 @@ public class Prob328_medium {
 
             ListNode last = getLast(head);
 
-            ListNode stopNode = last;
-            while(pointer != null && pointer.next!=null && pointer!=stopNode){
+            ListNode stopNode = pointer.next;
+            boolean iterationStarted = false;
+            while(pointer != null && pointer.next!=null && pointer!=stopNode && (!iterationStarted || pointer.next!=stopNode)){
+                iterationStarted = true;
                 last.next = pointer.next;
                 pointer.next = pointer.next.next;
                 last = last.next;
@@ -26,7 +28,7 @@ public class Prob328_medium {
             return head;
         }
 
-    private leetcode.helper.ListNode getLast(ListNode root) {
+    private ListNode getLast(ListNode root) {
         while(root.next!=null){
             root = root.next;
         }
@@ -44,6 +46,12 @@ public class Prob328_medium {
         nextNode.next = new ListNode(4);
         nextNode = nextNode.next;
         nextNode.next = new ListNode(5);
+//        nextNode = nextNode.next;
+//        nextNode.next = new ListNode(6);
+//        nextNode = nextNode.next;
+//        nextNode.next = new ListNode(7);
+//        nextNode = nextNode.next;
+//        nextNode.next = new ListNode(8);
 
         nextNode = prob.oddEvenList(head);
         while(nextNode!=null) {

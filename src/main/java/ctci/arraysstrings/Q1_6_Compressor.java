@@ -3,10 +3,10 @@ package ctci.arraysstrings;
 /** replace letter repetitions in a string with a single letter followed by the number of repetitions
  *
  */
-public class Compressor {
+public class Q1_6_Compressor {
 
     public static void main(String[] args) {
-        Compressor compressor = new Compressor();
+        Q1_6_Compressor compressor = new Q1_6_Compressor();
 
         System.out.println(compressor.compress("aabcccccaaa")); //a2b1c5a3
     }

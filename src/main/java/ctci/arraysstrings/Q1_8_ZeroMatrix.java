@@ -7,10 +7,10 @@ import java.util.Set;
 /** For each zero in the provided matrix - nullify its row and column
  *
  */
-public class ZeroMatrix {
+public class Q1_8_ZeroMatrix {
 
     public static void main(String[] args) {
-        ZeroMatrix zeroMatrix = new ZeroMatrix();
+        Q1_8_ZeroMatrix zeroMatrix = new Q1_8_ZeroMatrix();
 
         System.out.println(Arrays.deepToString(zeroMatrix.clear(new int[][]{
                 {1, 0, 3},

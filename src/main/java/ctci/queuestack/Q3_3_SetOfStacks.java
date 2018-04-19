@@ -1,8 +1,8 @@
-package ctci.arraysstrings;
+package ctci.queuestack;
 
 import java.util.Stack;
 
-public class SetOfStacks<T> {
+public class Q3_3_SetOfStacks<T> {
 
     private static final int MAX_STACK_SIZE = 16;
 

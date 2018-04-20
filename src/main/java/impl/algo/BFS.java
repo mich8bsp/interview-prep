@@ -1,11 +1,10 @@
-package main.java.impl.algo;
+package impl.algo;
 
-import main.java.impl.collections.GraphNode;
+import impl.collections.GraphNode;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-import java.util.concurrent.LinkedBlockingQueue;
 import java.util.stream.Collectors;
 
 public class BFS {

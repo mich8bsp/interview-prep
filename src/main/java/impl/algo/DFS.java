@@ -1,6 +1,7 @@
-package main.java.impl.algo;
+package impl.algo;
 
-import main.java.impl.collections.GraphNode;
+
+import impl.collections.GraphNode;
 
 public class DFS {
 

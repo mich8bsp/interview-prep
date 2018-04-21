@@ -68,4 +68,11 @@ public class BinaryTree<T> {
     public void setParent(BinaryTree<T> parent) {
         this.parent = parent;
     }
+
+    @Override
+    public String toString() {
+        return "BinaryTree{" +
+                "value=" + value +
+                '}';
+    }
 }
